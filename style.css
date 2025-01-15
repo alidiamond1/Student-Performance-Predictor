@@ -411,3 +411,81 @@ input:valid:focus {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
+
+/* GitHub CTA Styles */
+.github-cta {
+    background: linear-gradient(145deg, var(--card-background), var(--input-background));
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.cta-text, .star-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
+.cta-text i, .star-text i {
+    color: var(--primary-color);
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.github-button {
+    display: inline-block;
+    background-color: #24292e;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.github-button i {
+    margin-right: 8px;
+}
+
+.github-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #2f363d;
+}
+
+.main-desc {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+/* Responsive GitHub CTA */
+@media (max-width: 600px) {
+    .github-cta {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .cta-text, .star-text {
+        font-size: 1em;
+    }
+
+    .github-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Animation for GitHub star icon */
+.star-text i {
+    animation: star-pulse 2s infinite;
+}
+
+@keyframes star-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
