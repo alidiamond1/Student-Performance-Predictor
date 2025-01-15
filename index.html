@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Performance Predictor</h1>
+        <p class="text-center mb-4">Enter student details below to predict their academic performance</p>
+        
+        <form id="predictionForm">
+            <div class="form-group tooltip">
+                <label for="socioeconomic">Socioeconomic Score (0-1):</label>
+                <input type="number" 
+                       id="socioeconomic" 
+                       step="0.01" 
+                       min="0" 
+                       max="1" 
+                       required 
+                       placeholder="Enter score between 0 and 1">
+                <span class="tooltiptext">Score representing socioeconomic status (0 = lowest, 1 = highest)</span>
+            </div>
+
+            <div class="form-group tooltip">
+                <label for="studyHours">Study Hours per Day:</label>
+                <input type="number" 
+                       id="studyHours" 
+                       min="0" 
+                       max="24" 
+                       step="0.5" 
+                       required 
+                       placeholder="Enter daily study hours">
+                <span class="tooltiptext">Average number of hours spent studying per day</span>
+            </div>
+
+            <div class="form-group tooltip">
+                <label for="sleepHours">Sleep Hours per Day:</label>
+                <input type="number" 
+                       id="sleepHours" 
+                       min="0" 
+                       max="24" 
+                       step="0.5" 
+                       required 
+                       placeholder="Enter daily sleep hours">
+                <span class="tooltiptext">Average number of hours of sleep per day</span>
+            </div>
+
+            <div class="form-group tooltip">
+                <label for="attendance">Attendance Percentage:</label>
+                <input type="number" 
+                       id="attendance" 
+                       min="0" 
+                       max="100" 
+                       required 
+                       placeholder="Enter attendance percentage">
+                <span class="tooltiptext">Class attendance percentage (0-100)</span>
+            </div>
+
+            <button type="submit" id="predictButton">
+                <span class="button-text">Predict Performance</span>
+            </button>
+        </form>
+
+        <div id="result">
+            <h2>Prediction Result</h2>
+            <div class="result-content text-center">
+                <p>Predicted Grade: <span id="predictedGrade"></span></p>
+                <div class="grade-interpretation mt-4">
+                    <p>Grade Interpretation:</p>
+                    <ul>
+                        <li>90-100: Excellent</li>
+                        <li>80-89: Very Good</li>
+                        <li>70-79: Good</li>
+                        <li>60-69: Satisfactory</li>
+                        <li>Below 60: Needs Improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

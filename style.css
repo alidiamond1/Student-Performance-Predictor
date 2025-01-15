@@ -1,0 +1,334 @@
+/* Modern color scheme */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #3498db;
+    --success-color: #2ecc71;
+    --background-color: #f5f6fa;
+    --card-background: #ffffff;
+    --text-color: #2c3e50;
+    --border-color: #e1e8ed;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --input-background: #f8f9fa;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Typography */
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin: 20px 0;
+    font-size: 1.8em;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: var(--input-background);
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Results section */
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--input-background);
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+#result.visible {
+    display: block;
+}
+
+#predictedGrade {
+    color: var(--success-color);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+    }
+}
+
+/* Loading state */
+button:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Helper classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* Input validation styles */
+input:invalid {
+    border-color: #e74c3c;
+}
+
+input:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Grade colors */
+.grade-excellent {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.grade-very-good {
+    color: #2ecc71;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.grade-good {
+    color: #f1c40f;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.grade-satisfactory {
+    color: #e67e22;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.grade-needs-improvement {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+/* Error message styles */
+.error-message {
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #dc2626;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button:disabled::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+/* Grade interpretation list */
+.grade-interpretation {
+    background-color: var(--input-background);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.grade-interpretation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.grade-interpretation li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.grade-interpretation li:last-child {
+    border-bottom: none;
+}
+
+/* Result animation */
+.result-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Validation feedback */
+input:valid {
+    border-color: #2ecc71;
+}
+
+input:valid:focus {
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
